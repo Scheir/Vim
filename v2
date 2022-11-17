@@ -55,34 +55,57 @@ nnoremap qq :!python3 %
 " Curly brace
 inoremap { {}<Esc>ha
 
+" go to last open tab
+"au TabLeave * let g:lasttab = tabpagenr()
+"nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+"vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+
+" Move between windows 
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+
+" Move between tabs
+nnoremap <c-l> gt
+nnoremap <c-h> gT
+
+
 " vimgrep and quickfix window 
 nnoremap <C-f> :vimgrep /
 nnoremap <expr> <leader>f empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
+" Split all windows to right
+set splitright
 
-" NERDTree Settings
-nnoremap <C-n> :NERDTree<CR>
 " Cursor
 let &t_SI = "\e[4 q"
 let &t_EI = "\e[2 q"
-" Terminal settings
-"set splitabove
-"set termwinsize=10x10
-"open terminal below
+
+
+
+" Terminal settings Opens a terminal of 10 row size below
 :nnoremap <leader>o :wincmd b \| bel terminal ++rows=10<CR>
 
+
+"#### PLUGINS #####"
+
 " JEDI VIM
-let g:jedi#show_call_signatures = "1"
+"let g:jedi#show_call_signatures = "1"
 " Disable
 " let g:jedi#auto_initialization = 0
 " Disable popup on dot
 let g:jedi#popup_on_dot = 0
 
+
+" NERDTree Settings
+" Open nerd tree with ctrl+n
+nnoremap <C-n> :NERDTree<CR>
+
+
 " vim-clang
 "let g:clang_c_options = '-std=gnu11'
 "let g:clang_cpp_options = '-std=c++14 -stdlib=libc++'
-
-
 
 
 
