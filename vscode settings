@@ -1,0 +1,22 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["i", "i"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "after": ["g", "T"],
+            "before" : ["<C-h>"]    
+       },
+       {
+            "after": ["g", "t"],
+            "before" : ["<C-l>"]    
+        }
+    ],
+    "keyboard.dispatch": "keyCode",
+    "vim.leader" : "<space>"
+
+}
