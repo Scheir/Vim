@@ -74,6 +74,7 @@ nnoremap <c-h> gT
 " vimgrep and quickfix window 
 nnoremap <C-f> :vimgrep /
 nnoremap <expr> <leader>f empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
+autocmd! FileType qf nnoremap <buffer> v <C-w><Enter><C-w>L
 
 " Split all windows to right
 set splitright
