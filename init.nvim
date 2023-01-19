@@ -1,0 +1,94 @@
+" NVIM config
+" No COC / YCM in this
+
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+" STANDARD SETTINGS
+set enc=utf-8
+set fenc=utf-8
+set termencoding=utf-8
+set nocompatible
+set autoindent
+set smartindent
+set tabstop=4        " tab width is 4 spaces
+set shiftwidth=4     " indent also with 4 spaces
+set expandtab        " expand tabs to spaces
+set textwidth=120
+set t_Co=256
+"let python_highlight_all=1
+syntax on
+set number
+set showmatch
+set comments=sl:/*,mb:\ *,elx:\ */
+set hlsearch
+set backspace=indent,eol,start
+
+
+" Remaps STANDARD
+inoremap ii <esc>
+nnoremap qq :!python3 %
+:vmap // :s:^://<cr>
+" Curly brace
+inoremap { {}<Esc>ha
+
+
+" go to last open tab
+"au TabLeave * let g:lasttab = tabpagenr()
+"nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+"vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+
+" Move between windows
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <C-]> <leader>l
+nnoremap <leader>l <C-w>l
+
+" Move between tabs
+nnoremap <c-l> gt
+nnoremap <c-h> gT
+
+
+" vimgrep and quickfix window
+nnoremap <C-f> :vimgrep /
+nnoremap <expr> <leader>f empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
+autocmd! FileType qf nnoremap <buffer> v <C-w><Enter><C-w>L
+
+" Split all windows to right
+set splitright
+
+nnoremap <C-]> <C-]>
+nnoremap <leader>n <C-]>
+
+" Cursor
+" let &t_SI = "\e[4 q"
+" let &t_EI = "\e[2 q"
+set guicursor=i-ci:hor10-Search
+
+
+" END TERMINAL "
+
+"#### PLUGINS #####"
+
+" JEDI VIM
+"let g:jedi#show_call_signatures = "1"
+" Disable
+" let g:jedi#auto_initialization = 0
+" Disable popup on dot
+"let g:jedi#popup_on_dot = 0
+
+
+" NERDTree Settings
+" Open nerd tree with ctrl+n
+nnoremap <C-n> :NERDTree<CR>
+
+
+
+"PLUGINS USED
+" drwxr-xr-x 11 andre.scheir-johanss domain^users 4096 Nov 16 14:01 ctrlp
+" drwxr-xr-x 10 andre.scheir-johanss domain^users 4096 Nov 16 13:50 nerdtree
+" drwxr-xr-x  6 andre.scheir-johanss domain^users 4096 Nov 16 13:32 vim-commentary
