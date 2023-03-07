@@ -70,11 +70,20 @@ nnoremap <leader>l <C-w>l
 nnoremap <c-l> gt
 nnoremap <c-h> gT
 
+" Tags
+nnoremap <c-l> gt
+nnoremap <c-h> gT
 
 " vimgrep and quickfix window 
 nnoremap <C-f> :vimgrep /
 nnoremap <expr> <leader>f empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 autocmd! FileType qf nnoremap <buffer> v <C-w><Enter><C-w>L
+
+" open header or cpp file with alt+o
+nnoremap <A-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+" change between cpp and hpp files
+nnoremap <leader>o :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
 
 " Split all windows to right
 set splitright
@@ -83,7 +92,8 @@ set splitright
 let &t_SI = "\e[4 q"
 let &t_EI = "\e[2 q"
 
-
+" search word under cursor
+nnoremap <expr> * ':%s/'.expand('<cword>').'//gn<CR>``'
 
 " Terminal settings Opens a terminal of 10 row size below
 :nnoremap <leader>o :wincmd b \| bel terminal ++rows=10<CR>
@@ -91,27 +101,28 @@ let &t_EI = "\e[2 q"
 
 "#### PLUGINS #####"
 
-" JEDI VIM
-"let g:jedi#show_call_signatures = "1"
-" Disable
-" let g:jedi#auto_initialization = 0
-" Disable popup on dot
-let g:jedi#popup_on_dot = 0
-
 
 " NERDTree Settings
 " Open nerd tree with ctrl+n
 nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-n>f :NERDTreeFind<CR>
 
+"ctrlp ingnor
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.c,*.json
 
 " vim-clang
 "let g:clang_c_options = '-std=gnu11'
 "let g:clang_cpp_options = '-std=c++14 -stdlib=libc++'
 
+"cpp modern
+" enable hihlighting of C++11 attributes
+let g:cpp_attributes_highlight = 1
 
+" Highlight struct/class member variables (affects both C and C++ files)
+let g:cpp_member_highlight = 1
 
-
-
+" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
+let g:cpp_simple_highlight = 1
 
 "PLUGINS USED 
 " drwxr-xr-x 11 andre.scheir-johanss domain^users 4096 Nov 16 14:01 jedi-vim
@@ -120,3 +131,4 @@ nnoremap <C-n> :NERDTree<CR>
 " drwxr-xr-x  5 andre.scheir-johanss domain^users 4096 Nov 16 15:56 vim-clang
 " drwxr-xr-x  6 andre.scheir-johanss domain^users 4096 Nov 16 13:32 vim-commentary
 " drwxr-xr-x  4 andre.scheir-johanss domain^users 4096 Nov 17 17:03 meta5
+" modern-cpp"
