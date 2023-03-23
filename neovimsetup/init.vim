@@ -6,9 +6,6 @@ lua require('_telescope')
 set termguicolors
 lua require('feline').setup()
 
-"git signins
-lua require('gitsigns').setup()
-
 " COLOR THEME
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
@@ -61,12 +58,8 @@ nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
 " Move between tabs
-nnoremap <c-l> gt
-nnoremap <c-h> gT
-
-" Tags
-nnoremap <c-l> gt
-nnoremap <c-h> gT
+nnoremap <C-l> gt
+nnoremap <C-h> gT
 
 " open header or cpp file with alt+o
 nnoremap <A-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
@@ -81,9 +74,12 @@ set guicursor=i-c:hor100
 " search word under cursor
 nnoremap <expr> * ':%s/'.expand('<cword>').'//gn<CR>``'
 
-" Terminal settings Opens a terminal of 10 row size below
-:nnoremap <leader>o :wincmd b \| bel terminal ++rows=10<CR>
-
+"Terminal settings, open a new terminal
+nnoremap <leader>t :tabnew +term <cr>
+" Move from terminal tab
+tnoremap <C-h> <C-\><C-n>gt
+tnoremap <C-l> <C-\><C-n>gT
+tnoremap <C-w> <C-\><C-n>:tabc <cr>
 
 " Show whitespace in the current buffre
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -154,4 +150,12 @@ let g:lsp_cxx_hl_use_text_props = 1
 
 " ------------Telescope------------------
 nnoremap <C-p> <cmd>Telescope find_files<cr>
-nnoremap <C-f> <cmd>Telescope live_grep<cr>
+"nnoremap <C-f> <cmd>Telescope live_grep<cr>
+
+" --------DiffView----------
+" Open normal file view
+nmap <leader>dvo :DiffviewOpen<CR>
+" Open file history
+
+nmap <leader>dvh :DiffviewFileHistory %<CR>
+set Use_icons = false
