@@ -7,5 +7,6 @@ require("telescope").setup{
         ["<C-k>"] = actions.move_selection_previous
       },
     },
+    vim.keymap.set('n', '<C-f>', require("telescope").extensions.live_grep_args.live_grep_args, { noremap = true })
   }
 }
