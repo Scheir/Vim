@@ -26,7 +26,6 @@ set termencoding=utf-8
 set nocompatible
 set autoindent
 set smartindent
-
 set tabstop=4        " tab width is 4 spaces
 set shiftwidth=4     " indent also with 4 spaces
 set expandtab        " expand tabs to spaces
@@ -34,6 +33,7 @@ set textwidth=120
 set filetype=1
 autocmd Filetype py setlocal ts=4 sw=4 expandtab
 autocmd Filetype cpp setlocal ts=3 sw=3 expandtab
+autocmd Filetype c setlocal ts=3 sw=3 expandtab
 set t_Co=256
 syntax on
 set number
@@ -103,13 +103,13 @@ nnoremap <C-n>f :NERDTreeFind<CR>
 
 "cpp modern
 " enable hihlighting of C++11 attributes
-let g:cpp_attributes_highlight = 1
+" let g:cpp_attributes_highlight = 1
 
-" Highlight struct/class member variables (affects both C and C++ files)
-let g:cpp_member_highlight = 1
+" " Highlight struct/class member variables (affects both C and C++ files)
+" let g:cpp_member_highlight = 1
 
-" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
-let g:cpp_simple_highlight = 1
+" " Put all standard C and C++ keywords under Vim's highlight group 'Statement'
+" let g:cpp_simple_highlight = 1
 
 " ---- coc -----
 " GoTo code navigation
@@ -135,8 +135,8 @@ nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
 " set tagfunc to work with coctagfunc
 set tagfunc=CocTagFunc
 "
-nnoremap <leader>os :CocCommand clangd.switchSourceHeader vsplit
-nnoremap <leader>oo :CocCommand clangd.switchSourceHeader
+nnoremap <leader>os :CocCommand clangd.switchSourceHeader vsplit <CR>
+nnoremap <leader>oo :CocCommand clangd.switchSourceHeader <CR>
 
 " Use tab to finnish auto-complete
 inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
@@ -146,7 +146,7 @@ inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
 nnoremap <silent> <leader>doc :call CocActionAsync('doHover')<cr>
 
 " ---- LSP cxx Highlight -----
-let g:lsp_cxx_hl_use_text_props = 1
+" let g:lsp_cxx_hl_use_text_props = 1
 
 " ------------Telescope------------------
 nnoremap <C-p> <cmd>Telescope find_files<cr>
@@ -156,6 +156,18 @@ nnoremap <C-p> <cmd>Telescope find_files<cr>
 " Open normal file view
 nmap <leader>dvo :DiffviewOpen<CR>
 " Open file history
-
 nmap <leader>dvh :DiffviewFileHistory %<CR>
-set Use_icons = false
+
+
+"Semshi python highlighter
+let g:semshi#error_sign = v:false
+
+" jusinmk/vim-sneak better find motion
+"Adds labels to all the matches. Like in vimeum on chrome.
+let g:sneak#label = 1
+" One stroke
+" map f <Plug>Sneak_f
+" map F <Plug>Sneak_F
+" two strokes
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
