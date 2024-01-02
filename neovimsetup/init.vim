@@ -7,9 +7,7 @@ set termguicolors
 lua require('feline').setup()
 
 " COLOR THEME
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
+colorscheme catppuccin-macchiato " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 
 " LEADER
 nnoremap <SPACE> <Nop>
@@ -52,14 +50,14 @@ nnoremap qq :!python3 %
 inoremap { {}<Esc>ha
 
 " Move between windows
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
+" nnoremap C-h <C-w>h
+" nnoremap C-j <C-w>j
+" nnoremap C-k <C-w>k
+" nnoremap C-l <C-w>l
 
 " Move between tabs
-nnoremap <C-l> gt
-nnoremap <C-h> gT
+nnoremap <leader>l gt
+nnoremap <leader>h gT
 
 " open header or cpp file with alt+o
 nnoremap <A-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
@@ -74,12 +72,12 @@ set guicursor=i-c:hor100
 " search word under cursor
 nnoremap <expr> * ':%s/'.expand('<cword>').'//gn<CR>``'
 
-"Terminal settings, open a new terminal
-nnoremap <leader>t :tabnew +term <cr>
-" Move from terminal tab
-tnoremap <C-h> <C-\><C-n>gt
-tnoremap <C-l> <C-\><C-n>gT
-tnoremap <C-w> <C-\><C-n>:tabc <cr>
+""Terminal settings, open a new terminal
+"nnoremap <leader>t :tabnew +term <cr>
+"" Move from terminal tab
+"tnoremap <C-H> <C-\><C-n>gt
+"tnoremap <C-L> <C-\><C-n>gT
+"tnoremap <C-w> <C-\><C-n>:tabc <cr>
 
 " Show whitespace in the current buffre
 highlight ExtraWhitespace ctermbg=red guibg=red
