@@ -8,6 +8,11 @@ lua require('feline').setup()
 
 " COLOR THEME
 colorscheme catppuccin-macchiato " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+" Transparent background           
+highlight Normal guibg=none        
+highlight NonText guibg=none
+highlight StatusLine guibg=none    
+hi NormalNC ctermbg=NONE guibg=NONE
 
 " LEADER
 nnoremap <SPACE> <Nop>
