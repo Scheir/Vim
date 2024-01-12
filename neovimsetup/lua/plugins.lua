@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
   use 'preservim/nerdtree'
   use 'tpope/vim-commentary'
   --use 'ctrlpvim/ctrlp.vim'
+  use { "catppuccin/nvim", as = "catppuccin" }
   use 'prabirshrestha/vim-lsp'
   -- use 'jackguo380/vim-lsp-cxx-highlight'
   use 'mhartington/oceanic-next'
@@ -22,8 +23,8 @@ return require('packer').startup(function(use)
                 end
       }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use { 'numirias/semshi' }
+  -- use { 'numirias/semshi' }
   use { 'justinmk/vim-sneak' }
   use { 'christoomey/vim-tmux-navigator'}
-
+  use {'nvim-treesitter/nvim-treesitter'}
   end)
