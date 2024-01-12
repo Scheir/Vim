@@ -1,6 +1,7 @@
 " LUA stuff for now
 lua require('plugins')
 lua require('_telescope')
+lua require('_treesitter')
 
 " BAR
 set termguicolors
